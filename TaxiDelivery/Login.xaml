@@ -1,0 +1,20 @@
+﻿<Window x:Class="taxi.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:taxi"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="20">
+            <Label Content="Email:"/>
+            <TextBox x:Name="Email" Width="200" Margin="0,0,0,10"/>
+
+            <Label Content="Номер телефона:"/>
+            <TextBox x:Name="Phone" Width="200" Margin="0,0,0,10"/>
+
+            <Button Content="Войти" Width="100" Height="30" Click="LoginButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
