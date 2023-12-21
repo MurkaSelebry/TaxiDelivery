@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TaxiDelivery.Models;
 
-public partial class TaxiHandlerContext : DbContext
+public partial class ScottDbContext : DbContext
 {
-    public TaxiHandlerContext()
+    public ScottDbContext()
     {
     }
 
-    public TaxiHandlerContext(DbContextOptions<TaxiHandlerContext> options)
+    public ScottDbContext(DbContextOptions<ScottDbContext> options)
         : base(options)
     {
     }

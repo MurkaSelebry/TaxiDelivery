@@ -7,24 +7,21 @@
         mc:Ignorable="d"
         Title="Admin" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="carDataGrid" AutoGenerateColumns="False" Margin="10" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer}" Width="150"/>
-                <DataGridTextColumn Header="Модель" Binding="{Binding Model}" Width="100"/>
-                <DataGridTextColumn Header="Год выпуска" Binding="{Binding Year}" Width="100"/>
-                <DataGridTextColumn Header="Цвет" Binding="{Binding Color}" Width="100"/>
-                <DataGridTextColumn Header="Гос. номер" Binding="{Binding RegistrationNumber}" Width="100"/>
-            </DataGrid.Columns>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- ComboBox в новом месте -->
+        <ComboBox x:Name="tableComboBox" Width="150" Margin="10" Height="20" SelectionChanged="TableComboBox_SelectionChanged"/>
+
+        <!-- DataGrid для отображения таблицы -->
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="10" CanUserAddRows="False" Grid.Row="1">
+            <!-- Динамически добавляемые колонки будут созданы здесь в коде -->
         </DataGrid>
 
-        <DataGrid x:Name="priceDataGrid" AutoGenerateColumns="False" Margin="10" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Тариф" Binding="{Binding Tariff}" Width="150"/>
-                <DataGridTextColumn Header="Цена за км" Binding="{Binding PricePerKm}" Width="100"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10">
+        <!-- Кнопки внизу окна -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10">
             <Button Content="Добавить" Width="80" Height="30" Click="AddCar_Click"/>
             <Button Content="Изменить" Width="80" Height="30" Click="EditCar_Click"/>
             <Button Content="Удалить" Width="80" Height="30" Click="DeleteCar_Click"/>
